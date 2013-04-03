@@ -28,3 +28,7 @@ HEADERS += \
     graph.h \
     kmean.h
 
+OTHER_FILES += \
+    polbooks.gml \
+    airlines.graphml
+

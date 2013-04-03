@@ -15,6 +15,9 @@
 #include <boost/graph/circle_layout.hpp>
 #include <boost/graph/fruchterman_reingold.hpp>
 #include <boost/graph/kamada_kawai_spring_layout.hpp>
+#include <boost/graph/graphml.hpp>
+
+typedef boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS > UGraph;
 
 using namespace Eigen;
 using namespace std;
@@ -39,6 +42,7 @@ class Graph
 {
 public:
     Graph(MatrixXd mat);
+    //Graph(string fileName);
     MatrixXd mcl(int e,int r);
     MatrixXd spectral(MatrixXd mat,int k);
     vector<vector<double> > classify(MatrixXd mat);
@@ -48,6 +52,7 @@ private:
     MatrixXd inflate(MatrixXd grap,int r);
     MatrixXd expand(MatrixXd inf, int e);
     double error(MatrixXd ex, MatrixXd inf);
+    UGraph g;
 
 };
 

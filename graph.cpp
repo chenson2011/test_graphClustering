@@ -3,12 +3,14 @@
 #include <Eigen/Dense>
 #include <iostream>
 #include "kmean.h"
+#include <fstream>
+
 using namespace Eigen;
 using namespace std;
 using namespace boost;
 
 //typedef boost::adjacency_matrix<boost::undirectedS> UGraph;
-typedef boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS > UGraph;
+
 
 Graph::Graph(MatrixXd mat)
 {
@@ -17,6 +19,18 @@ Graph::Graph(MatrixXd mat)
     adj = mat;
     std::cout <<mat<<std::endl;
 }
+
+/*Graph::Graph(string fileName)
+{
+    ifstream inFile;
+    inFile.open("airlines.graphml");
+    boost::dynamic_properties dp;
+
+    boost::read_graphml(inFile, ug,dp);
+
+    boost::print_graph(ug);
+}
+*/
 
 MatrixXd Graph::mcl(int e,int r)
 {
